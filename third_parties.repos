@@ -1,0 +1,13 @@
+repositories:
+  ThirdParty/kobuki_ros:
+    type: git
+    url: https://github.com/kobuki-base/kobuki_ros.git
+    version: devel
+  ThirdParty/diagnostics:
+    type: git
+    url: https://github.com/ros/diagnostics.git
+    version: foxy
+  ThirdParty/kobuki_ros_iterfaces:
+    type: git
+    url: https://github.com/kobuki-base/kobuki_ros_interfaces.git
+    version: devel
