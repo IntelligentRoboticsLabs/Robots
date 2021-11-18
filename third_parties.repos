@@ -1,0 +1,9 @@
+repositories:
+  ThirdParty/rplidar_ros:
+    type: git
+    url: https://github.com/fmrico/rplidar_ros.git
+    version: fixes_narrow_error
+  ThirdParty/kobuki_desktop:
+    type: git
+    url: https://github.com/fmrico/kobuki_desktop.git
+    version: noetic-notestsuite
