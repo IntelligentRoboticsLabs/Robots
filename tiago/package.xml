@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>ir_tiago</name>
+  <version>0.1.0</version>
+  <description>The Intelligent Robotics tiago package</description>
+
+  <maintainer email="fmrico@gmail.com">fmrico</maintainer>
+
+  <license>Apache 2</license>
+
+  <author email="fmrico@gmail.com">Francisco Martín</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>worlds</exec_depend>
+
+  <export>
+
+  </export>
+</package>

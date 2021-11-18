@@ -14,7 +14,7 @@
   </node>
 
   <node pkg="laser_filters" type="scan_to_scan_filter_chain" name="laser_filter">
-    <rosparam command="load" file="$(find robots)/definition/robot/my_laser_config.yaml" />
+    <rosparam command="load" file="$(find ir_kobuki)/definition/robot/my_laser_config.yaml" />
   </node>
 
   <node pkg="tf" type="static_transform_publisher" name="bf2base"

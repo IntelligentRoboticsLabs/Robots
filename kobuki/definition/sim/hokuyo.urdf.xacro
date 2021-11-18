@@ -16,7 +16,7 @@
       <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://robots/definition/sim/hokuyo.dae"/>
+        <mesh filename="package://ir_kobuki/definition/sim/hokuyo.dae"/>
       </geometry>
       </visual>
 

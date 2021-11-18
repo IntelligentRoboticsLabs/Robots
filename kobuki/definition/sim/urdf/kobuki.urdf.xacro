@@ -7,8 +7,8 @@
       kobuki_description/launch/view_model.launch
  -->
 <robot name="kobuki" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:include filename="$(find robots)/definition/sim/urdf/common_properties.urdf.xacro"/>
-  <xacro:include filename="$(find robots)/definition/sim/urdf/kobuki_gazebo.urdf.xacro"/>
+  <xacro:include filename="$(find ir_kobuki)/definition/sim/urdf/common_properties.urdf.xacro"/>
+  <xacro:include filename="$(find ir_kobuki)/definition/sim/urdf/kobuki_gazebo.urdf.xacro"/>
 
   <!-- Kobuki -->
   <xacro:macro name="kobuki">
@@ -33,7 +33,7 @@
       <visual>
         <geometry>
           <!-- new mesh -->
-          <mesh filename="package://robots/definition/sim/meshes/main_body.dae" />
+          <mesh filename="package://ir_kobuki/definition/sim/meshes/main_body.dae" />
         </geometry>
         <origin xyz="0.001 0 0.05199" rpy="0 0 0"/>
       </visual>
@@ -69,7 +69,7 @@
     <link name="wheel_left_link">
       <visual>
         <geometry>
-          <mesh filename="package://robots/definition/sim/meshes/wheel.dae"/>
+          <mesh filename="package://ir_kobuki/definition/sim/meshes/wheel.dae"/>
         </geometry>
         <origin xyz="0 0 0" rpy="0 0 0"/>
       </visual>
@@ -97,7 +97,7 @@
     <link name="wheel_right_link">
       <visual>
         <geometry>
-          <mesh filename="package://robots/definition/sim/meshes/wheel.dae"/>
+          <mesh filename="package://ir_kobuki/definition/sim/meshes/wheel.dae"/>
         </geometry>
         <origin xyz="0 0 0" rpy="0 0 0"/>
       </visual>

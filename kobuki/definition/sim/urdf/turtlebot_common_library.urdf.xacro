@@ -4,6 +4,6 @@
  -->
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
   <!-- General -->
-  <xacro:include filename="$(find robots)/definition/sim/urdf/common_properties.urdf.xacro"/>
-  <xacro:include filename="$(find robots)/definition/sim/urdf/turtlebot_properties.urdf.xacro"/>
+  <xacro:include filename="$(find ir_kobuki)/definition/sim/urdf/common_properties.urdf.xacro"/>
+  <xacro:include filename="$(find ir_kobuki)/definition/sim/urdf/turtlebot_properties.urdf.xacro"/>
 </robot>
