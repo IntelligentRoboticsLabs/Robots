@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <launch>
 
-  <arg name="laser_serial_port" default="/dev/ttyUSB0"/>
+  <arg name="laser_serial_port" default="/dev/lidar"/>
 
   <include file="$(find kobuki_node)/launch/minimal.launch"/>
 

@@ -4,7 +4,7 @@
   <arg name="world_name" default="$(find worlds)/worlds/GrannyAnnie.world"/>
   <arg name="posx" value="0.0"/>
   <arg name="posy" value="0.0"/>
-  <arg name="posYaw" value="0.0"/>
+  <arg name="posYaw" value="3.14"/>
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="use_sim_time" value="true"/>
