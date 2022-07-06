@@ -98,18 +98,15 @@ Open RViz2 and check TFs and Laser
 # Launch kobuki simulated
 
 ## Pre-configuration
-```
-# ThirdParty
-cd <your-workspace>/src
-vcs import . < Robots/kobuki/third_parties.repos
 
-# Move model to GAZEBO_MODEL_PATH
+Move model to GAZEBO_MODEL_PATH
+```
 mkdir -p ~/.gazebo/models/ir_kobuki
-mkdir ~/.gazebomodels/ir_kobuki
 cd <your-workspace>/src/Robots/kobuki/
-cp models/ ~/.gazebo/models/ir_kobuki/models/meshes
+cp -r models/ ~/.gazebo/models/ir_kobuki/models/meshes
 ```
 
+## Launch Gazebo & Kobuki
 ```
 ros2 launch ir_kobuki sim.launch.py
 ```
