@@ -90,13 +90,26 @@ ros2 launch rplidar rplidar.launch.py
 ## Launch everything
 
 ```
-ros2 run ir_kobuki kobuki_rplidar.launch.py
+ros2 launch ir_kobuki kobuki_rplidar.launch.py
 ```
 
 Open RViz2 and check TFs and Laser
 
-## Launch kobuki simulated
+# Launch kobuki simulated
+
+## Pre-configuration
+```
+# ThirdParty
+cd <your-workspace>/src
+vcs import . < Robots/kobuki/third_parties.repos
+
+# Move model to GAZEBO_MODEL_PATH
+mkdir -p ~/.gazebo/models/ir_kobuki
+mkdir ~/.gazebomodels/ir_kobuki
+cd <your-workspace>/src/Robots/kobuki/
+cp models/ ~/.gazebo/models/ir_kobuki/models/meshes
+```
 
 ```
-ros2 run ir_kobuki sim.launch.py
+ros2 launch ir_kobuki sim.launch.py
 ```
