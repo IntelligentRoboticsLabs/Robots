@@ -1,4 +1,4 @@
-# Copyright 2021 Intelligent Robotics Lab
+# Copyright 2022 Intelligent Robotics Lab
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,21 +16,25 @@ import os
 
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, SetEnvironmentVariable
+from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.conditions import IfCondition, UnlessCondition
-from launch.substitutions import Command, LaunchConfiguration, PythonExpression
 from launch_ros.actions import Node
-from launch_ros.substitutions import FindPackageShare
+from launch.actions import SetEnvironmentVariable
 
 def generate_launch_description():
 
     gazebo_pkg = get_package_share_directory('gazebo_ros')
     worlds_pkg = get_package_share_directory('worlds')
-    kobuki_pkg = get_package_share_directory('kobuki')
+    kobuki_pkg = get_package_share_directory('ir_kobuki')
+
+    urdf_file = os.path.join(kobuki_pkg, 'urdf', 'kobuki.urdf')
+
+    with open(urdf_file, 'r') as info:
+        robot_desc = info.read()
 
     world_path = os.path.join(worlds_pkg, 'worlds', 'GrannyAnnie.world')
     
+    # Gazebo
     start_gazebo_server_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(os.path.join(gazebo_pkg, 'launch', 'gzserver.launch.py')),
             launch_arguments={'world': world_path}.items())
@@ -38,10 +42,36 @@ def generate_launch_description():
     start_gazebo_client_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(os.path.join(gazebo_pkg, 'launch', 'gzclient.launch.py')))
 
+    # Robot description
+    robot_model = Node(
+        package='robot_state_publisher',
+        executable='robot_state_publisher',
+        parameters=[{'robot_description': robot_desc}],
+        arguments=[urdf_file]
+    )
+
+    # TF Tree
+    joint_state_publisher_node = Node(
+        package='joint_state_publisher',
+        executable='joint_state_publisher',
+        name='joint_state_publisher'
+    )
+
+    # Spawn
+    spawn_entity_node = Node(
+        package='gazebo_ros',
+        executable='spawn_entity.py',
+        name='entity_spawner',
+        output='screen',
+        arguments=["-topic", "/robot_description", "-entity", "kobuki"]
+    )
+
     ld = LaunchDescription()
 
     # Add any actions
     ld.add_action(start_gazebo_server_cmd)
     ld.add_action(start_gazebo_client_cmd)
-    
+    ld.add_action(robot_model)
+    ld.add_action(joint_state_publisher_node)
+    ld.add_action(spawn_entity_node)
     return ld
