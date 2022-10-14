@@ -59,7 +59,7 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 On terminal 1:
 ```
-ros2 launch kobuki_node minimal.launch
+ros2 launch ir_kobuki kobuki_rplidar.launch.py
 ```
 
 You should have listened a sound that indicates that the driver succesfully communicated with the robot. Check permissions otherwise
