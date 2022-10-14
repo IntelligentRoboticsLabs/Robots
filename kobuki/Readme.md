@@ -22,7 +22,7 @@ Logout and login again.
 
 ```
 cd ~/ros2_ws/src
-gir clone -b foxy https://github.com/IntelligentRoboticsLabs/Robots.git
+gir clone -b humble https://github.com/IntelligentRoboticsLabs/Robots.git
 ```
 
 6. Download the repos with the kobuki driver and utils
@@ -84,7 +84,7 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 4. Run the driver
 
 ```
-ros2 launch rplidar rplidar.launch.py
+ros2 launch rplidar_ros rplidar.launch.py
 ```
 
 5. Visualize the `/scan` topic in RViz2 (frame `laser`)
