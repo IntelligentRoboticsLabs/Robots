@@ -50,7 +50,9 @@ colcon build --symlink-install
 10. Use the kobuki utils to create the udev rules
 
 ```
-ros2 run kobuki_ftdi create_udev_rules
+cd src/ThirdParty/kobuki_ftdi
+sudo mv 60-kobuki.rules /etc/udev/rules.d/
+sudo udevadm control --reload-rules && sudo udevadm trigger
 ```
 
 11. Let's launch the kobuki driver to test that everything went ok
