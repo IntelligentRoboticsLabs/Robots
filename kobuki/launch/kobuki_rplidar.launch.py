@@ -40,7 +40,6 @@ def generate_launch_description():
         )
 
     rplidar_cmd = Node(
-        node_name='rplidar_composition',
         package='rplidar_ros',
         executable='rplidar_composition',
         output='screen',
@@ -54,7 +53,7 @@ def generate_launch_description():
         }],
     )
 
-    tf_kobuki2laser_cmd = Node( package='tf2_ros', node_executable='static_transform_publisher', output='screen',
+    tf_kobuki2laser_cmd = Node( package='tf2_ros', executable='static_transform_publisher', output='screen',
         arguments=['0.11', '0.0', '0.17',
                 '3.1415', '0', '3.1415',
                 'base_link',
